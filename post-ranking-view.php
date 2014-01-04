@@ -115,13 +115,16 @@
 
 			if( !empty( $arrPost ) ) {
 				if( empty( $print ) ){
-					$view = '<ul>';
-						foreach( $arrPost as $row ) {
-							$view .= '<li>';
-								$view .= '<a href="' . $row['url'] . '" title="' . $row['title'] . '">' . $row['title'] . ' (' . $row['views'] . ')</a>';
-							$view .= '</li>'; 
-						}
-					$view .= '</ul>';
+					$view = '<section class="prv_ranking">';
+						$view .= '<h2>Ranking</h2>';
+						$view .= '<ul>';
+							foreach( $arrPost as $row ) {
+								$view .= '<li>';
+									$view .= '<a href="' . $row['url'] . '" title="' . $row['title'] . '">' . $row['title'] . ' (' . $row['views'] . ')</a>';
+								$view .= '</li>'; 
+							}
+						$view .= '</ul>';
+					$view .= '</section>';
 				}
 				else{
 					$view = $arrPost;

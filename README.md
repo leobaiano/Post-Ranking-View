@@ -1,26 +1,26 @@
-=== Plugin Name ===
-Contributors: leobaiano
-Donate link: http://lbideias.com.br/donate
-Tags: ranking views, ranking posts, posts views, popular, popular posts
-Requires at least: 3.8
-Tested up to: 3.8
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# Plugin Name #
+**Contributors:** leobaiano  
+**Donate link:** http://lbideias.com.br/donate  
+**Tags:** ranking views, ranking posts, posts views, popular, popular posts  
+**Requires at least:** 3.8  
+**Tested up to:** 3.8  
+**Stable tag:** 1.0  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 This plugin counts the number of visitors to each post and generates a ranking of most viewed posts.
 
-== Description ==
+## Description ##
 
 This plugin generates a list of more pupulares posts based on the number of visits the post received. The plugin uses cookies to ensure that the user's visit is counted only once in each post, making the manipulation of the ranking.
 
 You can set how many posts will be displayed in the ranking set that only posts from a particular CPT or a particular category will be taken into consideration, among other settings.
 
-= Contribute =
+### Contribute ###
 
 You can contribute to the source code in our [GitHub](https://github.com/leobaiano/Post-Ranking-View) page.
 
-== Installation ==
+## Installation ##
 
 To install just follow the installation steps of most WordPress plugin's:
 
@@ -32,7 +32,7 @@ e.g.
 4. Activate the plugin through the `Plugins` menu in WordPress;
 5. Be happy.
 
-= Showing the ranking of posts =
+### Showing the ranking of posts ###
 
 To display a list of posts you have two options:
 
@@ -49,7 +49,7 @@ if (function_exists ('displayRanking')) {
 $posts = displayRanking( '','','', true );
 ?>
 
-= Parameters of the function = 
+### Parameters of the function ###
 
 <?php
 	displayRanking( $amount, $post_type, $category, $print );
@@ -60,13 +60,13 @@ $posts = displayRanking( '','','', true );
 	$print - Sets whether HTML is returned or an array with the posts ranking. Default = null ( display HTML )
 ?>
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions ##
 
-= How do I change the look of the list of posts? =
+### How do I change the look of the list of posts? ###
 
 The plugin does not bring any CSS style for the list of posts, the visual follows the style sheet theme, so to change the look just customize the CSS of the theme.
 
-= How do I change the amount of posts being displayed in the rankings? = 
+### How do I change the amount of posts being displayed in the rankings? ###
 
 The first parameter of the function to set the number of posts by default 5 posts will be listed, but if you want to change this value just set the value in the first parameter. For example, if you want the 10 most viewed posts are displayed use the following code to call the ranking:
 
@@ -76,8 +76,8 @@ displayRanking(10);
 }
 ?>
 
-== Changelog ==
+## Changelog ##
 
-= 1.0 2013-01-04 =
+### 1.0 2013-01-04 ###
 
 * Creation of the plugin, the initial version.
