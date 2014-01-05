@@ -37,17 +37,17 @@ e.g.
 To display a list of posts you have two options:
 
 1 - Let the plugin generate the HTML
-<?php
+`<?php
 if ( function_exists( 'displayRanking' ) ) {
 displayRanking();
 }
-?>
+?>`
 
 2 - Save an array with the data in a variable
-<?php
+`<?php
 if (function_exists ('displayRanking')) {
 $posts = displayRanking( '','','', true );
-?>
+?>`
 
 = Parameters of the function = 
 
@@ -70,11 +70,11 @@ The plugin does not bring any CSS style for the list of posts, the visual follow
 
 The first parameter of the function to set the number of posts by default 5 posts will be listed, but if you want to change this value just set the value in the first parameter. For example, if you want the 10 most viewed posts are displayed use the following code to call the ranking:
 
-<?php
+`<?php
 if ( function_exists( 'displayRanking' ) ) {
 displayRanking(10);
 }
-?>
+?>`
 
 == Changelog ==
 
