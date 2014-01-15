@@ -51,7 +51,7 @@ $posts = displayRanking( '','','', true );
 
 ### Parameters of the function ###
 
-<?php
+`
 	displayRanking( $amount, $post_type, $category, $print, $thumb );
 
 	$amount - Amount of posts to be displayed. Default = 5
@@ -59,7 +59,7 @@ $posts = displayRanking( '','','', true );
 	$category - Category that should be considered in the ranking, if not set posts from all categories will enter the ranking. Default = null
 	$print - Sets whether HTML is returned or an array with the posts ranking. Default = null ( display HTML )
 	$thumb - Show thumbnail or not - true to display thumbnail, default false
-?>
+`
 
 ## Frequently Asked Questions ##
 
