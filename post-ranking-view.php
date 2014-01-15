@@ -5,7 +5,7 @@
  * Description: This plugin counts the number of visitors to each post and generates a ranking of most viewed posts.
  * Author: leobaiano
  * Author URI: http://lbideias.com.br/
- * Version: 1.0
+ * Version: 1.1
  * License: GPLv2 or later
  * Text Domain: lb_prv
  * Domain Path: /languages/
@@ -77,9 +77,10 @@
 		 * @param  string  $post_type - Type of post that should be considered in the ranking, if not set all kind of posts will enter the ranking.
 		 * @param  string  $category - Category that should be considered in the ranking, if not set posts from all categories will enter the ranking.
 		 * @param  boolean $print - Sets whether HTML is returned or an array with the posts ranking
+		 * @param boolean $thumb - Show thumbnail or not - true to display thumbnail, default false
 		 * @return boolean $objPosts - Array or HTML
 		 */
-		public static function displayRanking( $amount = 5, $post_type = null, $category = null, $print = null ) {
+		public static function displayRanking( $amount = 5, $post_type = null, $category = null, $print = null, $thumb = null ) {
 			$arrPost = array();
 			$args = array(
 					'posts_per_page' => $amount,
@@ -105,10 +106,22 @@
 					$url = get_permalink( $postID );
 					$title = get_the_title( $postID );
 					$views = get_post_meta( $postID, self::$lb_prv_views, true );
+
+					if( !empty( $thumb ) ){
+						$thumbArr = wp_get_attachment_image_src( get_post_thumbnail_id( $postID, 'thumbnail' ) );
+						$urlThumb = $thumbArr['0'];
+						if( empty( $urlThumb) )
+							$urlThumb = 'http://placehold.it/100x100';
+					}
+					else{
+						$urlThumb = "";
+					}
+
 					$arrPost[] = array(
 							'url'	=> $url,
 							'title'	=> $title,
-							'views'	=> $views
+							'views'	=> $views,
+							'thumb' => $urlThumb	
 						);
 				}
 			}
@@ -120,7 +133,12 @@
 						$view .= '<ul>';
 							foreach( $arrPost as $row ) {
 								$view .= '<li>';
-									$view .= '<a href="' . $row['url'] . '" title="' . $row['title'] . '">' . $row['title'] . ' (' . $row['views'] . ')</a>';
+									$view .= '<a href="' . $row['url'] . '" title="' . $row['title'] . '">';
+										if( !empty( $thumb ) ){
+											$view .= '<img src="' . $row['thumb'] . '" width="100" />';
+										}
+										$view .= $row['title'] . ' (' . $row['views'] . ')';
+									$view .= '</a>';
 								$view .= '</li>'; 
 							}
 						$view .= '</ul>';
@@ -138,8 +156,8 @@
 	}
 	new PostRankingView;
 
-	function displayRanking( $amount = 5, $post_type = null, $category = null, $print = null ){ 
-		$posts = PostRankingView::displayRanking( $amount, $post_type, $category, $print );
+	function displayRanking( $amount = 5, $post_type = null, $category = null, $print = null, $thumb = null ){ 
+		$posts = PostRankingView::displayRanking( $amount, $post_type, $category, $print, $thumb );
 		if( empty( $print ) )
 			echo $posts;
 		else

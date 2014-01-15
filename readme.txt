@@ -4,7 +4,7 @@ Donate link: http://lbideias.com.br/donate
 Tags: ranking views, ranking posts, posts views, popular, popular posts
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,12 +52,13 @@ $posts = displayRanking( '','','', true );
 = Parameters of the function = 
 
 <?php
-	displayRanking( $amount, $post_type, $category, $print );
+	displayRanking( $amount, $post_type, $category, $print, $thumb );
 
 	$amount - Amount of posts to be displayed. Default = 5
 	$post_type - Type of post that should be considered in the ranking, if not set all kind of posts will enter the ranking. Default = null
 	$category - Category that should be considered in the ranking, if not set posts from all categories will enter the ranking. Default = null
 	$print - Sets whether HTML is returned or an array with the posts ranking. Default = null ( display HTML )
+	$thumb - Show thumbnail or not - true to display thumbnail, default false
 ?>
 
 == Frequently Asked Questions ==
@@ -76,8 +77,22 @@ displayRanking(10);
 }
 ?>`
 
+= How to display the thumbnail of the post? = 
+
+To show the thumbnail you need to set the parameter to true $ thumb, below an example of displaying the ranking with thumbnail image:
+
+`<?php
+if ( function_exists( 'displayRanking' ) ) {
+displayRanking( '', '', '', '', true );
+}
+?>`
+
 == Changelog ==
 
-= 1.0 2013-01-04 =
+= 1.1 2014-01-15 =
+
+* Including the option to show the post thumbnail
+
+= 1.0 2014-01-04 =
 
 * Creation of the plugin, the initial version.
