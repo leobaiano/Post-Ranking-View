@@ -1,4 +1,4 @@
-# Plugin Name #
+# Post Ranking View #
 **Contributors:** leobaiano  
 **Donate link:** http://lbideias.com.br/donate  
 **Tags:** ranking views, ranking posts, posts views, popular, popular posts  
